@@ -6,12 +6,12 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     with picamera.PiCamera() as camera:
-    camera.resolution = (2592, 1944)
-    camera.start_preview()
-    # Camera warm-up time
-    time.sleep(5)
-    camera.capture('temp.jpg')
-    return app.send_static_file('temp.jpg')
+        camera.resolution = (2592, 1944)
+        camera.start_preview()
+        # Camera warm-up time
+        time.sleep(5)
+        camera.capture('temp.jpg')
+        return app.send_static_file('temp.jpg')
         
 
 if __name__ == '__main__':
