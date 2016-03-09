@@ -1,5 +1,6 @@
-from flask import Flask
 import picamera
+from time import sleep
+from flask import *
 
 app = Flask(__name__)
 
@@ -11,7 +12,7 @@ def index():
         # Camera warm-up time
         time.sleep(5)
         camera.capture('temp.jpg')
-        return render_template('temp.jpg')
+        return render_template('template.html')
         
 
 if __name__ == '__main__':
