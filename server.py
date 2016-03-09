@@ -129,6 +129,8 @@ def ConfigureVideo():
         counter += 1
         print(counter, format[0], "x", format[1])
         
+    res_choice = -1
+        
     while res_choice > len(resolutions) + 1 or res_choice < 1:
         try:
             res_choice = int(input("Enter choice: "))
