@@ -120,7 +120,39 @@ class BroadcastThread(Thread):
                     break
         finally:
             self.converter.stdout.close()
-
+            
+def ConfigureVideo():
+    resolutions = ((640, 480), (1280, 720), (1920, 1080))
+    print("Which resolution you want to record with?")
+    counter = 0
+    for format in resolutions:
+        counter += 1
+        print(counter, format[0], "x", format[1])
+        
+    while res_choice > len(resolutions) + 1 or res_choice < 1:
+        try:
+            res_choice = int(input("Enter choice: "))
+        except ValueError:
+            print("You did not enter a valid number.")
+            
+    WIDTH = (resolutions[res_choice - 1])[0]
+    HEIGHT = (resolutions[res_choice - 1])[1]
+    
+    valid_framerate = False
+    
+    while not valid_framerate:
+        desired_framerate = input("Enter your desired framerate or 'default' for the default framerate of 24fps")
+        
+        if "d" not in desired_framerate:   
+            try:
+                desired_framerate = int(input("Enter your desired framerate or 'default' for the default framerate of 24fps"))
+                valid_framerate = True
+            except ValueError:
+                print("You did not enter a valid input")
+                valid_framerate = False
+        else:
+            valid_framerate = True
+            
 
 def main():
     print('Initializing camera')
