@@ -11,7 +11,7 @@ def index():
         # Camera warm-up time
         time.sleep(5)
         camera.capture('temp.jpg')
-        return app.send_static_file('temp.jpg')
+        return render_template('temp.jpg')
         
 
 if __name__ == '__main__':
