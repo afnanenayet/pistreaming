@@ -143,11 +143,11 @@ def ConfigureVideo():
     valid_framerate = False
     
     while not valid_framerate:
-        desired_framerate = input("Enter your desired framerate or 'default' for the default framerate of 24fps")
+        desired_framerate = input("Enter your desired framerate or 'default' for the default framerate of 24fps: ")
         
         if "d" not in desired_framerate:   
             try:
-                desired_framerate = int(input("Enter your desired framerate or 'default' for the default framerate of 24fps"))
+                desired_framerate = int(desired_framerate)
                 valid_framerate = True
             except ValueError:
                 print("You did not enter a valid input")
