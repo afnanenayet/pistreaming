@@ -155,6 +155,7 @@ def ConfigureVideo():
             
 
 def main():
+    ConfigureVideo()
     print('Initializing camera')
     with picamera.PiCamera() as camera:
         camera.resolution = (WIDTH, HEIGHT)
